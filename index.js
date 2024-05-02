@@ -28,6 +28,7 @@ async function run() {
 
     const database = client.db("touristDB");
     const touristsCollection = database.collection("touristsCollection");
+    const countriesCollection = database.collection("countriesCollection");
 
     app.get("/tourists", async (req, res) => {
       const cursor = touristsCollection.find();
@@ -96,6 +97,14 @@ async function run() {
       res.send(result);
     });
 
+
+    // countries related apis 
+
+    app.get("/countries", async (req, res) => {
+      const cursor = countriesCollection.find();
+      const result = await cursor.toArray();
+      res.send(result);
+    });
 
     // Send a ping to confirm a successful connection
     await client.db("admin").command({ ping: 1 });
