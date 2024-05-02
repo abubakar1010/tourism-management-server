@@ -50,6 +50,13 @@ async function run() {
       res.send(result);  
     });
 
+    // app.get("/tourists/update/:id", async (req, res) => {
+    //   const id = req.params.id;
+    //   const query = { _id: new ObjectId(id) };
+    //   const result = await touristsCollection.findOne(query);
+    //   res.send(result);
+    // });
+
     app.post("/tourists", async (req, res) => {
       const newTourist = req.body;
       console.log(newTourist);
@@ -57,8 +64,37 @@ async function run() {
       res.send(result);
     });
 
+    // app.put("/tourists/update/:id", async (req, res) => {
+    //   const id = req.params.id;
+    //   const filter = { _id: new ObjectId(id) };
+    //   const option = { upsert: true };
+    //   const updateTourists = req.body
+    //   const tourists = {
+    //     $set: {
+    //       name: updateTourists.name,
+    //       email: updateTourists.email,
+    //       spotName: updateTourists.spotName,
+    //       countryName: updateTourists.countryName,
+    //       image: updateTourists.image,
+    //       location: updateTourists.location,
+    //       cost: updateTourists.cost,
+    //       season: updateTourists.season,
+    //       time: updateTourists.time,
+    //       visitor: updateTourists.visitor,
+    //       description: updateTourists.description,
+    //     },
+    //   };
+    //   const result = touristsCollection.updateOne(filter, tourists, option)
+    //   res.send(result)
+    // });
 
-    
+
+    // app.delete("/tourists/delete/:id", async (req, res) => {
+    //   const id = req.params.id;
+    //   const query = { _id: new ObjectId(id) };
+    //   const result = await touristsCollection.deleteOne(query);
+    //   res.send(result);
+    // });
 
 
     // Send a ping to confirm a successful connection
