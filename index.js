@@ -106,6 +106,15 @@ async function run() {
       res.send(result);
     });
 
+    app.get("/countries/countryCards/cards/:countryName", async (req, res) => {
+      const countryName = req.params.countryName;
+      console.log(countryName); 
+      const query = { countryName: countryName };
+      const cursor =  touristsCollection.find(query);
+      const result = await cursor.toArray()
+      res.send(result);  
+    });
+
     // Send a ping to confirm a successful connection
     await client.db("admin").command({ ping: 1 });
     console.log("Pinged your deployment. You successfully connected to MongoDB!");
